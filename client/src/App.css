@@ -5,6 +5,20 @@ body {
 }
 
 .App {
-  margin: 0;
-  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.navbar {
+  background-color: red;
+  display: flex;
+  justify-content: space-around;
+}
+
+.navbar-item {
+  background-color: blue;
+  width: 100px;
+  display: flex;
+  justify-content: center;
 }

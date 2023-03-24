@@ -9,13 +9,11 @@ body {
   justify-content: center;
   align-items: center;
   width: 100%;
-  min-height: 100vh;
+  height: 100%;
   background: linear-gradient(0.33turn, #e66465, #9198e5);
 }
 
 .register-panel {
-  width: 900px;
-  height: 400px;
   background-color: #060261;
   display: flex;
   border-radius: 5px;
@@ -30,6 +28,7 @@ body {
 
 .register-pic {
   flex: 1;
+  height: 100%;
 }
 
 .input-container {

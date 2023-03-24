@@ -16,7 +16,7 @@ const LoginPanel = () => {
           <SubmitButton />
         </div>
       </div>
-      <div className="register-pic">
+      <div>
         <img className="register-pic" src={IMG_URL} alt="" />
       </div>
     </div>
