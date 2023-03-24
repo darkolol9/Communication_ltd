@@ -10,12 +10,12 @@ body {
   align-items: center;
   width: 100%;
   min-height: 100vh;
-  background: linear-gradient(0.33turn ,#e66465, #9198e5);
+  background: linear-gradient(0.33turn, #e66465, #9198e5);
 }
 
 .register-panel {
-  width: 700px;
-  height: 500px;
+  width: 900px;
+  height: 400px;
   background-color: #060261;
   display: flex;
   border-radius: 5px;
