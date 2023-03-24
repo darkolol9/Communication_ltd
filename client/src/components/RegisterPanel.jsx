@@ -6,6 +6,7 @@ const RegisterPanel = () => {
     <div>
       <div className="register-panel">
         <div className="register-form">
+          <h1 className="register-title">Register</h1>
           <InputField fieldName="Email" />
           <InputField fieldName="Username" />
           <InputField fieldName="Password" />
