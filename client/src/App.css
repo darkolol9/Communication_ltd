@@ -14,15 +14,26 @@ body {
   background-color: #333;
   height: 50px;
   display: flex;
-  justify-content: start;
+  justify-content: center;
   gap: 10%;
+  padding: 10px;
 }
 
 .navbar-item {
-  width: 100px;
+  min-width: 100px;
+  padding: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
   color: pink;
+  border-radius: 5px;
   border: 1px solid pink;
+  box-shadow: 1px 1px 1px blue;
+  text-shadow: 1px 1px 1px green;
+  cursor: pointer;
+  outline: none;
+}
+
+.navbar-item:hover {
+  background-color: #334;
 }
