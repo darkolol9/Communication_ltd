@@ -29,6 +29,7 @@ body {
 .register-pic {
   flex: 1;
   height: 100%;
+  border-radius: 5px;
 }
 
 .input-container {
@@ -48,6 +49,7 @@ body {
   font-size: 18px;
   border-radius: 2px;
   width: 100%;
+  cursor: pointer;
 }
 
 .register-title {
