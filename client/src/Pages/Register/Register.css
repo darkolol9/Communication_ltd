@@ -1,0 +1,42 @@
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(#e66465, #9198e5);
+}
+
+.register-panel {
+  width: 700px;
+  height: 500px;
+  background-color: #060261;
+  display: flex;
+}
+
+.register-form {
+  height: 100%;
+  display: flex;
+  background-color: red;
+  flex-direction: column;
+  flex: 1;
+}
+
+.register-pic {
+  flex: 1;
+}
+
+.input-container {
+  background-color: green;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.submit-btn {
+  margin-top: 30px;
+  height: 70px;
+  background: linear-gradient(#e66465, #9198e5);
+  border: none;
+}
