@@ -5,19 +5,32 @@ import LoginPage from "./Pages/LoginPage/LoginPage";
 import Register from "./Pages/Register/Register";
 import NavBar from "./components/NavBar";
 import Loading from "./components/Loading";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 300);
+  }, []);
   return (
     <BrowserRouter>
       <div className="App">
         <NavBar />
-        {/* <Loading /> */}
-        <Routes>
-          <Route path="*" element={<h1>NOT IMPLEMENTED YET</h1>} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/forgot_password" element={<ChangePassword />} />
-          <Route path="/register" element={<Register />} />
-        </Routes>
+
+        {loading ? (
+          <Loading />
+        ) : (
+          <Routes>
+            <Route path="*" element={<h1>NOT IMPLEMENTED YET</h1>} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/forgot_password" element={<ChangePassword />} />
+            <Route path="/register" element={<Register />} />
+          </Routes>
+        )}
       </div>
     </BrowserRouter>
   );
