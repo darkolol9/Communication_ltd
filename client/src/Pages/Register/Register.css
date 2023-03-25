@@ -17,7 +17,8 @@ body {
 }
 
 .register-panel {
-  background-color: #060261;
+  background-color: #232241;
+  padding: 10px;
   display: flex;
   border-radius: 5px;
 }
