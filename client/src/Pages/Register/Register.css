@@ -88,3 +88,12 @@ body {
 .form {
   margin: 20px;
 }
+
+.spinner-border {
+  width: 100px;
+  height: 100px;
+}
+
+.nav-link {
+  color : pink;
+}

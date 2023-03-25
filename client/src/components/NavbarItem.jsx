@@ -5,12 +5,12 @@ const NavbarItem = ({ url, label }) => {
 
   return (
     <div
-      className="navbar-item"
+      className="navbar-item nav-item"
       onClick={() => {
         navigate(url);
       }}
     >
-      {label}
+      <div className="nav-link">{label}</div>
     </div>
   );
 };

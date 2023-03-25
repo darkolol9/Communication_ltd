@@ -2,7 +2,7 @@ import NavbarItem from "./NavbarItem";
 
 const NavBar = () => {
   return (
-    <div className="navbar">
+    <div className="navbar nav nav-tabs">
       <div style={{ color: "red", backgroundColor : "white" }}>INSERT A LOGO HERE</div>
       <NavbarItem label="Home" url="/*" />
       <NavbarItem label="Login" url="/login" />
