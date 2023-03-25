@@ -6,6 +6,7 @@ import Register from "./Pages/Register/Register";
 import NavBar from "./components/NavBar";
 import Loading from "./components/Loading";
 import { useEffect, useState } from "react";
+import HomePage from "./Pages/HomePage/HomePage";
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -25,7 +26,7 @@ function App() {
           <Loading />
         ) : (
           <Routes>
-            <Route path="*" element={<h1>NOT IMPLEMENTED YET</h1>} />
+            <Route path="/" element={<HomePage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/forgot_password" element={<ChangePassword />} />
             <Route path="/register" element={<Register />} />

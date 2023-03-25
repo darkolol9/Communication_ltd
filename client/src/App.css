@@ -44,3 +44,7 @@ body {
   color: white;
   border-bottom: 0;
 }
+
+.col {
+  flex-direction: column;
+}
