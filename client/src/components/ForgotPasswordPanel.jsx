@@ -10,9 +10,9 @@ const ForgotPasswordPanel = () => {
           <h1 className="register-title">Reset Password</h1>
 
           <div className="form">
-            <InputField fieldName="Current Password" />
-            <InputField fieldName="New Password" />
-            <InputField fieldName="Repeat New Password" />
+            <InputField hide={true} fieldName="Current Password" />
+            <InputField hide={true} fieldName="New Password" />
+            <InputField hide={true} fieldName="Repeat New Password" />
 
             <SubmitButton />
           </div>
