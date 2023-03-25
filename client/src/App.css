@@ -47,4 +47,10 @@ body {
 
 .col {
   flex-direction: column;
+  justify-content: space-between !important;
+}
+
+.homepage {
+  display: flex;
+  justify-content: flex-end;
 }

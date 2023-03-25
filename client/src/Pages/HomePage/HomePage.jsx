@@ -3,10 +3,8 @@ import React from "react";
 const HomePage = () => {
   return (
     <>
-      <header className="container">
-        <h1>Welcome to Communications Ltd</h1>
-      </header>
       <div className="container-wrap col">
+        <h1 className="text-body-secondary">Welcome to Communications Ltd</h1>
         <div>
           <h2>About Us</h2>
           <p>
