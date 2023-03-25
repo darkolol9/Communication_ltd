@@ -53,4 +53,5 @@ body {
 .homepage {
   display: flex;
   justify-content: flex-end;
+  color: white;
 }
