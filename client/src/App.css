@@ -10,6 +10,16 @@ body {
   height: 100vh;
 }
 
+.nav-logo {
+  color: rgb(246, 182, 182);
+  font-size: 35px;
+  border: 1px solid rgb(203, 122, 122);
+  padding: 5px;
+  border-radius: 50%;
+  align-self: center;
+  cursor: pointer;
+}
+
 .navbar {
   background-color: #333;
   height: 50px;
@@ -22,6 +32,9 @@ body {
 .navbar-item {
   color: pink;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .nav-item:hover {

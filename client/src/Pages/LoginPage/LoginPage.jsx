@@ -2,7 +2,7 @@ import LoginPanel from "../../components/LoginPanel";
 
 const LoginPage = () => {
   return (
-    <div className="container">
+    <div className="container-wrap">
       <LoginPanel />
     </div>
   );

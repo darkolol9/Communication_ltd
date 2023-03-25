@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-const NavbarItem = ({ url, label }) => {
+const NavbarItem = ({ url, label, icon = null }) => {
   const navigate = useNavigate();
 
   return (
@@ -10,6 +10,7 @@ const NavbarItem = ({ url, label }) => {
         navigate(url);
       }}
     >
+      {icon}
       <div className="nav-link">{label}</div>
     </div>
   );

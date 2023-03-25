@@ -2,7 +2,7 @@ import ForgotPasswordPanel from "../../components/ForgotPasswordPanel";
 
 const ChangePassword = () => {
   return (
-    <div className="container">
+    <div className="container-wrap">
       <ForgotPasswordPanel />
     </div>
   );

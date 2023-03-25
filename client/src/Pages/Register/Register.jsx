@@ -4,7 +4,7 @@ import "./Register.css";
 const Register = () => {
   
   return (
-    <div className="container">
+    <div className="container-wrap">
       <RegisterPanel />
     </div>
   );
