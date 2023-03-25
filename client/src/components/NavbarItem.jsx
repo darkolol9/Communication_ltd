@@ -10,8 +10,7 @@ const NavbarItem = ({ url, label, icon = null }) => {
         navigate(url);
       }}
     >
-      {icon}
-      <div className="nav-link">{label}</div>
+      <div className="nav-link">{icon}{label}</div>
     </div>
   );
 };
