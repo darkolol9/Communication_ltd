@@ -1,10 +1,13 @@
 import "./HomePage.css";
+import { FcCellPhone, FcCallback, FcWebcam, FcAssistant } from "react-icons/fc";
 
 const HomePage = () => {
   return (
     <>
       <div className="container-wrap col">
-        <h1 className="text-body-secondary title">Welcome to Communications Ltd</h1>
+        <h1 className="text-body-secondary title">
+          Welcome to Communications Ltd
+        </h1>
         <div>
           <h2 className="title">About Us</h2>
           <p>
@@ -14,10 +17,25 @@ const HomePage = () => {
           </p>
           <h2 className="title">Services</h2>
           <ul>
-            <li>VoIP Phone Systems</li>
-            <li>Unified Communications</li>
-            <li>Video Conferencing</li>
-            <li>Contact Center Solutions</li>
+            <li>
+              {" "}
+              <FcCellPhone />
+              VoIP Phone Systems
+            </li>
+            <li>
+              {" "}
+              <FcCallback />
+              Unified Communications
+            </li>
+            <li>
+              {" "}
+              <FcWebcam />
+              Video Conferencing
+            </li>
+            <li>
+              <FcAssistant />
+              Contact Center Solutions
+            </li>
           </ul>
           <h2 className="title">Contact Us</h2>
           <p>Want to learn more about our services? Contact us today!</p>
