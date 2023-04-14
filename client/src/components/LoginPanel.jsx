@@ -10,7 +10,7 @@ const LoginPanel = () => {
   const [password, setPassword] = useState("_");
   const [loggedIn, setLoggedIn] = useState(false);
 
-  async function checkCredentialsInServer() {
+  async function checkCredentialsInServer(e) {
     const isValid = await Axios.get(
       `http://localhost:3000/users/${email}/${password}`
     );
@@ -24,7 +24,7 @@ const LoginPanel = () => {
       <div className="register-form">
         <h1 className="register-title">Login</h1>
 
-        <div className="form">
+        <form onSubmit={(e) => e.preventDefault()} className="form">
           <InputField
             onChange={(e) => {
               setEmail(e.target.value);
@@ -46,7 +46,7 @@ const LoginPanel = () => {
               checkCredentialsInServer();
             }}
           />
-        </div>
+        </form>
       </div>
       <div>
         <img className="register-pic" src={IMG_URL} alt="" />

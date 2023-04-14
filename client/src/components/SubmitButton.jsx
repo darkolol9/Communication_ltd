@@ -1,5 +1,5 @@
 const SubmitButton = ({onClick}) => {
-  return <button onClick={onClick} className="submit-btn">Submit</button>;
+  return <input onClick={onClick}  type="submit" className="submit-btn"/>;
 };
 
 export default SubmitButton;
