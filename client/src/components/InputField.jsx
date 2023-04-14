@@ -1,8 +1,8 @@
-const InputField = ({ fieldName, hide = false }) => {
+const InputField = ({ fieldName, hide = false, onChange }) => {
   return (
     <div className="input-container">
       <h3 className="label">{fieldName}</h3>
-      <input type={hide ? "password" : "text"} className="input-field" />
+      <input onChange={onChange} type={hide ? "password" : "text"} className="input-field" />
     </div>
   );
 };
