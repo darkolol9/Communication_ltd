@@ -1,5 +1,4 @@
 const express = require("express");
-const db = require("./DbConnector");
 const app = express();
 const RegisterController = require("./controller/RegisterController.js");
 

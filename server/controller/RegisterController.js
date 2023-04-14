@@ -1,29 +1,18 @@
-const db = require("../DbConnector");
+const UserModel = require("../model/UserModel");
 
 async function getAllUsers(req, res) {
-  const rows = await db.queryAsync(
-    `
-        SELECT * FROM users;
-    `
-  );
+  const rows = await UserModel.getAll();
 
   res.send({ users: rows });
 }
 
 async function checkValidCredentials(req, res) {
-  const resp = await db.queryAsync(
-    `
-        SELECT * FROM users
-        WHERE email = '${req.params.email}'
-        AND password = '${req.params.password}'
-    `
+  const isLoginValid = await UserModel.checkLoginDetails(
+    req.params.email,
+    req.params.password
   );
 
-  if (resp && resp.length > 0) {
-    res.send("success");
-  } else {
-    res.send("incorrect login details");
-  }
+  return isLoginValid;
 }
 
 module.exports = {
