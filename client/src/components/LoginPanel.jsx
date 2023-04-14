@@ -1,15 +1,26 @@
 import { useState } from "react";
 import InputField from "./InputField";
 import SubmitButton from "./SubmitButton";
+import Axios from "axios";
 
 const IMG_URL = "https://media.giphy.com/media/loXfQtPqLxGmbLs9h2/giphy.gif";
 
 const LoginPanel = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("_");
+  const [password, setPassword] = useState("_");
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  async function checkCredentialsInServer() {
+    const isValid = await Axios.get(
+      `http://localhost:3000/users/${email}/${password}`
+    );
+    console.log("credentials are : ", isValid.data);
+    setLoggedIn(isValid.data);
+  }
 
   return (
     <div className="register-panel">
+      {loggedIn ? <h1 className="register-title">USER LOGGED IN</h1> : ""}
       <div className="register-form">
         <h1 className="register-title">Login</h1>
 
@@ -32,6 +43,7 @@ const LoginPanel = () => {
           <SubmitButton
             onClick={() => {
               console.log("SENDING TO SERVER", { email, password });
+              checkCredentialsInServer();
             }}
           />
         </div>
