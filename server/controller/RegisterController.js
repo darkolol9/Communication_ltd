@@ -12,7 +12,7 @@ async function checkValidCredentials(req, res) {
     req.params.password
   );
 
-  return isLoginValid;
+  res.send(isLoginValid);
 }
 
 module.exports = {
