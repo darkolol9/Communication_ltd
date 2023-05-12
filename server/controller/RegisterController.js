@@ -9,7 +9,7 @@ async function register(req, res) {
     res.status(301).send({ status: "user_exists_already" });
   } else {
     await UserModel.insertUser(formData);
-    res.status(200).send("data test");
+    res.status(200).send({status : "success"});
   }
 }
 
