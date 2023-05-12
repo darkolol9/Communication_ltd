@@ -2,6 +2,7 @@ import * as Config from "../src/config.json";
 
 const passwordConfig = Config.default;
 
+
 const containsCaptial = (data) => {
     return /[A-Z]/.test(data);
 }
@@ -12,6 +13,10 @@ const containsDigits = (data) => {
 
 const containsSpecialChars = (data) => {
     return /[\W_]/.test(data);
+}
+
+const isCommonPassword = (data) => {
+    return passwordConfig.commonPasswords.contains(data);
 }
 
 
@@ -40,9 +45,17 @@ export const validateByConfig = (formData) => {
         }
     }
 
+    if (passwordConfig.mustContain.disallowCommonPassword) {
+        if (isCommonPassword(formData.password)) {
+            return false;
+        }
+    }
+
     if (formData.password !== formData.repeatPassword) {
         return false;
     }
+
+    
 
     return true;
 
