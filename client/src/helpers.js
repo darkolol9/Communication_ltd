@@ -16,7 +16,7 @@ const containsSpecialChars = (data) => {
 }
 
 const isCommonPassword = (data) => {
-    return passwordConfig.commonPasswords.contains(data);
+    return passwordConfig.commonPasswords.includes(data);
 }
 
 

@@ -1,19 +1,28 @@
 import InputField from "./InputField";
 import SubmitButton from "./SubmitButton";
-import * as Config from "../config.json";
 import { useState } from "react";
+import Axios from "axios";
 import { validateByConfig } from "../helpers";
+
 
 const IMG_URL = "https://media.giphy.com/media/DHeDr3SAM08koK2GFT/giphy.gif";
 
+const REGISTER_API = "http://localhost:3000/register";
+
+
 
 const onRegister = async (formData) => {
+
+  Axios.post(REGISTER_API, formData)
+  .then(r => console.log("response from server", r));
 
   let isPasswordValid = validateByConfig(formData);
 
   if (!isPasswordValid) {
     console.log("YOU SUCK, THE DETAILS ARE NOT GOOD");
   }
+
+
 };
 
 const RegisterPanel = () => {
