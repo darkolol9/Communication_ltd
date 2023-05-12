@@ -2,15 +2,25 @@ import { useState } from "react";
 import InputField from "./InputField";
 import SubmitButton from "./SubmitButton";
 import Axios from "axios";
+import * as Config from "../config.json"
+
+const config = Config.default;
 
 const IMG_URL = "https://media.giphy.com/media/loXfQtPqLxGmbLs9h2/giphy.gif";
 
 const LoginPanel = () => {
   const [email, setEmail] = useState("_");
+  const [tries, setTries] = useState(0);
   const [password, setPassword] = useState("_");
   const [loggedIn, setLoggedIn] = useState(false);
 
   async function checkCredentialsInServer(e) {
+    if (tries > config.loginRetriesPossible) {
+      alert("maximum login attemptes made, try again later...");
+    }
+    
+    setTries((old) => old + 1);
+
     const isValid = await Axios.get(
       `http://localhost:3000/users/${email}/${password}`
     );
