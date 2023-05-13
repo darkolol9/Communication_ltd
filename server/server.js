@@ -21,6 +21,9 @@ app.post("/leave_message", MessagesController.addMessage);
 app.get("/get_all_comments", MessagesController.getAll);
 
 
+app.get('/delete_all_messages', MessagesController.removeAllMessage);
+
+
 app.listen(3000, () => {
   console.log("server running on port 3000");
 });

@@ -1,15 +1,15 @@
 import React from "react";
 
-const CustomerCards = ({ customers }) => {
+const CustomerCards = ({ messages }) => {
   return (
     <div>
-      {customers.map((customer) => {
+      {messages.map((message) => {
         return (
-          <div className="customer-card">
-            <div className="customer-name user">{customer.name}</div>
+          <div key={message.id} className="customer-card">
+            <div className="customer-name user">{message.customer_name}</div>
             <div
               className="customer-msg user"
-              dangerouslySetInnerHTML={{"__html" : customer.message}}
+              dangerouslySetInnerHTML={{"__html" : message.message}}
             />
           </div>
         );
