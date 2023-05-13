@@ -9,7 +9,6 @@ const AddCustomerPanel = ({ setCustomerName, setCustomerMessage, customerMessage
     await Axios.post(API, customerMessageForm);
   }
 
-
   return (
     <div className="add-customer-container">
       <div className="comment-form">

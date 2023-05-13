@@ -6,7 +6,12 @@ async function addMessage(req, res) {
   await MessagesModel.addNewMessage(formData.customerName, formData.message);
   res.send(200);
 }
+async function getAll(req, res) {
+  let results = await MessagesModel.getAll();
+  res.send(results);
+}
 
 module.exports = {
   addMessage,
+  getAll
 };

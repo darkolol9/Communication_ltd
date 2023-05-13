@@ -10,6 +10,16 @@ const addNewMessage = async (customerName, message) => {
   );
 };
 
+const getAll = async () => {
+  let results = await db.queryAsync(
+    `
+      SELECT * FROM messages LIMIT 100;
+    `, []
+  )
+  return results;
+}
+
 module.exports = {
   addNewMessage,
+  getAll
 };

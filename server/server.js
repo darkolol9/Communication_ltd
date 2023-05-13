@@ -17,6 +17,10 @@ app.post("/register" , RegisterController.register);
 
 app.post("/leave_message", MessagesController.addMessage);
 
+
+app.get("/get_all_comments", MessagesController.getAll);
+
+
 app.listen(3000, () => {
   console.log("server running on port 3000");
 });
