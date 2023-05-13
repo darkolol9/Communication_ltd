@@ -9,6 +9,15 @@ body {
   color : white;
 }
 
+
+.outer-container {
+  background-color: #171724;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 10%;
+}
 .comment-form {
   display: flex;
   flex-direction: column;
