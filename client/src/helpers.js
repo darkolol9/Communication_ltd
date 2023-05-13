@@ -1,6 +1,13 @@
 import * as Config from "../src/config.json";
 
 
+
+export function htmlEncode(str) {
+  var div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+
 const passwordConfig = Config.default;
 
 const containsCaptial = (data) => {
