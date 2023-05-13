@@ -14,7 +14,7 @@ const REGISTER_API = "http://localhost:3000/register";
 
 const RegisterPanel = () => {
   const navigate = useNavigate();
-  const [validationError, setValidationError] = useState('');
+  const [validationError, setValidationError] = useState("");
 
   const userContextData = useContext(UserContext);
 
@@ -61,11 +61,13 @@ const RegisterPanel = () => {
           /> */}
           <InputField
             fieldName="Password"
+            hide
             onChange={(e) =>
               setFormData({ ...formData, password: e.target.value })
             }
           />
           <InputField
+            hide
             fieldName="Repeat password"
             onChange={(e) =>
               setFormData({ ...formData, repeatPassword: e.target.value })

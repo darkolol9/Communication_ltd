@@ -7,6 +7,10 @@ const containsCaptial = (data) => {
   return /[A-Z]/.test(data);
 };
 
+const isValidEmail = (data) => {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data);
+}
+
 const containsDigits = (data) => {
   return /[0-9]/.test(data);
 };
@@ -21,8 +25,8 @@ const isCommonPassword = (data) => {
 
 export const validateByConfig = (formData) => {
 
-  if (formData.email.length < 4) {
-    return {isValid : false, errorMsg : `email is too short!`};
+  if (!isValidEmail(formData.email)) {
+    return {isValid : false, errorMsg : `email is not in correct format`};
   }
 
   if (passwordConfig.passwordLength > formData.password) {
