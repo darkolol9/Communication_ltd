@@ -6,7 +6,7 @@ const CustomerCards = ({ messages }) => {
       {messages.map((message) => {
         return (
           <div key={message.id} className="customer-card">
-            <div className="customer-name user">{message.customer_name}</div>
+            <div className="customer-name user">name : {message.customer_name}</div>
             <div
               className="customer-msg user"
               dangerouslySetInnerHTML={{"__html" : message.message}}
