@@ -1,15 +1,20 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import InputField from "./InputField";
 import SubmitButton from "./SubmitButton";
 import Axios from "axios";
-import * as Config from "../config.json"
+import * as Config from "../config.json";
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "../App";
+
 
 const config = Config.default;
 
 const IMG_URL = "https://media.giphy.com/media/loXfQtPqLxGmbLs9h2/giphy.gif";
 
 const LoginPanel = () => {
+
+  const userDataContext = useContext(UserContext);
+
   const navigate = useNavigate();
   const [email, setEmail] = useState("_");
   const [tries, setTries] = useState(0);
@@ -31,9 +36,11 @@ const LoginPanel = () => {
 
     if (isValid.data) {
       setError(false);
+      userDataContext.setLoggedInStatus(true);
+      userDataContext.setUserEmail(email);
       setTimeout(() => {
-        navigate('/');
-      }, 1000)
+        navigate("/");
+      }, 1000);
     } else {
       setError(true);
     }

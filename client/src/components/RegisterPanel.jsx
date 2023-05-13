@@ -1,9 +1,10 @@
 import InputField from "./InputField";
 import SubmitButton from "./SubmitButton";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Axios from "axios";
 import { validateByConfig } from "../helpers";
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "../App";
 
 const SUCCESS = "success";
 
@@ -14,6 +15,8 @@ const REGISTER_API = "http://localhost:3000/register";
 const RegisterPanel = () => {
   const navigate = useNavigate();
   const [validationError, setValidationError] = useState('');
+
+  const userContextData = useContext(UserContext);
 
   const [formData, setFormData] = useState({
     email: "",
@@ -29,6 +32,8 @@ const RegisterPanel = () => {
     if (validationObject.isValid) {
       Axios.post(REGISTER_API, formData).then((r) => {
         if (r.data.status === SUCCESS) {
+          userContextData.setLoggedInStatus(true);
+          userContextData.setUserEmail(formData.email);
           navigate("/");
         }
       });
