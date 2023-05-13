@@ -4,6 +4,12 @@ body {
   font-style: italic;
 }
 
+.validation-error {
+  align-self: center;
+  font-size: 13px;
+  color: red;
+}
+
 .container-wrap {
   margin: 0;
   margin-right: 0;
