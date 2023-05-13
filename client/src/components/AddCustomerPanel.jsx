@@ -13,6 +13,9 @@ const AddCustomerPanel = ({ setCustomerName, setCustomerMessage, customerMessage
     <div className="add-customer-container">
       <div className="comment-form">
         <input onChange={(e) => setCustomerName(e.target.value)} placeholder="customer name" type="text" />
+        {/* dog'), ('yarin' , 'this message was not original */}
+        {/* example of a message that would act as SQL injection */}
+        {/* the fix: use params (?) instead of formatted string in the model (MessagesModel) */}
         <input onChange={(e) => setCustomerMessage(e.target.value)} placeholder="leave us a message" type="text" />
         <button onClick={onSubmit} className="submit">Send</button>
       </div>

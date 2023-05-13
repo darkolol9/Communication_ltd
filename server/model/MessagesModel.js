@@ -5,12 +5,14 @@ const deleteAll = async () => {
 };
 
 const addNewMessage = async (customerName, message) => {
+  
+  
   await db.queryAsync(
     `
         INSERT INTO messages (customer_name, message)
-        VALUES (?, ?);
+        VALUES (?, '${message}');
         `,
-    [customerName, message]
+    [customerName]
   );
 };
 
