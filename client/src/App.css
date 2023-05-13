@@ -4,6 +4,19 @@ body {
   padding: 0;
 }
 
+
+.add-customer-container {
+  color : white;
+}
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  border: 1px solid yellow;
+  padding: 5px;
+}
+
 .user {
   font-size: 15px;
   color: white;
