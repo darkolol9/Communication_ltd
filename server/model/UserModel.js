@@ -11,6 +11,8 @@ async function getUserByEmail(email) {
   return results
 }
 
+
+//safe
 async function insertUser(formData) {
   let result = await db.queryAsync(
     `
@@ -47,14 +49,14 @@ async function getAll() {
 }
 
 
-//SQL injection
+//SQL injection -- safe
 async function checkLoginDetails(email, password) {
   const resp = await db.queryAsync(
     `
     SELECT * FROM users
-    WHERE email = '${email}'
-    AND password = '${password}'
-    `,[]
+    WHERE email = ?
+    AND password = ?
+    `,[email, password]
   );
 
   if (resp && resp.length > 0) {

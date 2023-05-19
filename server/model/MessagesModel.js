@@ -6,11 +6,11 @@ const deleteAll = async () => {
 
 const addNewMessage = async (customerName, message) => {
   //prone to sql injection, use ? params instead of formatted strings
-  
+  //safe
   await db.queryAsync(
     `
         INSERT INTO messages (customer_name, message)
-        VALUES (?, '${message}');
+        VALUES (?, ?);
         `,
     [customerName]
   );
