@@ -4,8 +4,9 @@ import Axios from 'axios';
 const API = 'http://localhost:3000/leave_message';
 
 const AddCustomerPanel = ({ setCustomerName, setCustomerMessage, customerMessageForm }) => {
+  
   const onSubmit = async () => {
-    //submit the message to the server;;;
+    //submit the message to the server;;;;;;
     await Axios.post(API, customerMessageForm);
   }
 

@@ -1,7 +1,6 @@
 const db = require("../DbConnector");
 
 
-
 async function getUserByEmail(email) {
   let results = await db.queryAsync(
     `
@@ -22,6 +21,21 @@ async function insertUser(formData) {
 
   return result;
 }
+
+
+//this example is prone to SQL injection
+
+// async function insertUser(formData) {
+//   let result = await db.queryAsync(
+//     `
+//       INSERT INTO users (email, password)
+//       VALUES (${formData.email} , ${formData.password})
+//     `, []
+//   )
+
+//   return result;
+// }
+
 async function getAll() {
   const rows = await db.queryAsync(
     `
@@ -32,13 +46,15 @@ async function getAll() {
   return { users: rows };
 }
 
+
+//SQL injection
 async function checkLoginDetails(email, password) {
   const resp = await db.queryAsync(
     `
     SELECT * FROM users
     WHERE email = '${email}'
     AND password = '${password}'
-    `
+    `,[]
   );
 
   if (resp && resp.length > 0) {

@@ -5,7 +5,7 @@ const deleteAll = async () => {
 };
 
 const addNewMessage = async (customerName, message) => {
-  
+  //prone to sql injection, use ? params instead of formatted strings
   
   await db.queryAsync(
     `
