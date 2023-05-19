@@ -11,30 +11,20 @@ async function getUserByEmail(email) {
   return results
 }
 
-async function insertUser(formData) {
-  let result = await db.queryAsync(
-    `
-      INSERT INTO users (email, password)
-      VALUES (? , ?)
-    `, [formData.email, formData.password]
-  )
-
-  return result;
-}
 
 
 //this example is prone to SQL injection
 
-// async function insertUser(formData) {
-//   let result = await db.queryAsync(
-//     `
-//       INSERT INTO users (email, password)
-//       VALUES (${formData.email} , ${formData.password})
-//     `, []
-//   )
+async function insertUser(formData) {
+  let result = await db.queryAsync(
+    `
+      INSERT INTO users (email, password)
+      VALUES (${formData.email} , ${formData.password})
+    `, []
+  )
 
-//   return result;
-// }
+  return result;
+}
 
 async function getAll() {
   const rows = await db.queryAsync(
