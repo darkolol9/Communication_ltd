@@ -3,7 +3,14 @@ const app = express();
 const cors = require('cors');
 const RegisterController = require("./controller/RegisterController.js");
 const MessagesController = require("./controller/MessagesController.js");
+const https = require('https');
+const fs = require('fs');
 
+const options = {
+  key: fs.readFileSync('server.key'),
+  cert: fs.readFileSync('server.cert'),
+  secureProtocol: 'TLSv1_2_method'
+};
 
 app.use(cors());
 
@@ -21,6 +28,9 @@ app.get("/get_all_comments", MessagesController.getAll);
 
 app.get('/delete_all_messages', MessagesController.removeAllMessage);
 
-app.listen(3000, () => {
+const server = https.createServer(options, app);
+
+
+server.listen(3000, () => {
   console.log("server running on port 3000");
 });
