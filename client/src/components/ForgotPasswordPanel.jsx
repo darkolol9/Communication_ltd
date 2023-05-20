@@ -54,7 +54,7 @@ const ForgotPasswordPanel = () => {
 
         {codeSent ? (
           <>
-          <h1 className="register-title">a secret code has been sent to your email...</h1>
+          <h1 className="code-sent">a secret code has been sent to your email...</h1>
           <VerificationPanel
             onChange={(e) =>
               setFormData({ ...formData, secretCode: e.target.value })

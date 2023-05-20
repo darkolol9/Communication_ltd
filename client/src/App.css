@@ -16,6 +16,12 @@ body {
   margin: 10px 0;
 }
 
+.code-sent {
+  margin: 10px;
+  font-size: 14px;
+  color: white;
+}
+
 
 .outer-container {
   background-color: #171724;
