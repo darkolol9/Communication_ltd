@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { UserContext } from "../App";
 
 const SUCCESS = "success";
+const USER_EXISTS_ALREADY = "user_exists_already";
 
 const IMG_URL = "https://media.giphy.com/media/DHeDr3SAM08koK2GFT/giphy.gif";
 
@@ -35,6 +36,8 @@ const RegisterPanel = () => {
           userContextData.setLoggedInStatus(true);
           userContextData.setUserEmail(formData.email);
           navigate("/");
+        } else if (r.data.status === USER_EXISTS_ALREADY) {
+          alert('Email already in use!')
         }
       });
     }

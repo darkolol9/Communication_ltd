@@ -7,7 +7,7 @@ async function register(req, res) {
   let usersWithEmail = await UserModel.getUserByEmail(formData.email);
 
   if (usersWithEmail.length > 0) {
-    res.sendStatus(301).send({ status: "user_exists_already" });
+    res.send({ status: "user_exists_already" });
   } else {
     formData.password = hashPassword(formData.password);
     await UserModel.insertUser(formData);
