@@ -12,7 +12,7 @@ const addNewMessage = async (customerName, message) => {
         INSERT INTO messages (customer_name, message)
         VALUES (?, ?);
         `,
-    [customerName]
+    [customerName, message]
   );
 };
 
