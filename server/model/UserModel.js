@@ -11,11 +11,19 @@ async function getUserByEmail(email) {
   return results
 }
 
+async function updateSecretCode(email, code) {
+  await db.queryAsync(
+    `
+      UPDATE users SET secret_code = ? WHERE email = ?;
+    `, [code, email]
+  )
+}
+
 async function updatePassword(email, password) {
   await db.queryAsync(
     `
       UPDATE users SET password = ? WHERE email = ?;
-    `, [email, password]
+    `, [password, email]
   )
 }
 
@@ -79,5 +87,6 @@ module.exports = {
   checkLoginDetails,
   insertUser,
   getUserByEmail,
-  updatePassword
+  updatePassword,
+  updateSecretCode
 };
