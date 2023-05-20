@@ -19,7 +19,7 @@ const resetPassword = async (req, res) => {
       to: formData.email,
       from: "commsltd777@gmail.com",
       subject: "Verification code to change password",
-      text: `The verification ${secretCode}`,
+      text: `The verification code ${secretCode}`,
     });
 
     res.send({ status: "success" });
