@@ -17,7 +17,7 @@ const resetPassword = async (req, res) => {
     //send the code to user
     await sendEmail({
       to: formData.email,
-      from: "commltdemail@gmail.com",
+      from: "commsltd777@gmail.com",
       subject: "Verification code to change password",
       text: `The verification ${secretCode}`,
     });

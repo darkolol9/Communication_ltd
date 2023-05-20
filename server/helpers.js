@@ -1,17 +1,14 @@
 const crypto = require("crypto");
 const sgMail = require("@sendgrid/mail");
-require('dotenv').config();
-
+require("dotenv").config();
 
 // sgMail.setApiKey(
 //   "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"
 // );
 
-sgMail.setApiKey(
-  process.env.SEND_GRID_API_KEY
-);
-
 async function sendEmail(msg) {
+  sgMail.setApiKey(process.env.SEND_GRID_API_KEY);
+
   sgMail
     .send(msg)
     .then(() => {
@@ -24,7 +21,7 @@ async function sendEmail(msg) {
 
 function generateRandomString() {
   const randomBytes = crypto.randomBytes(16);
-  const hash = crypto.createHash('sha1').update(randomBytes).digest('hex');
+  const hash = crypto.createHash("sha1").update(randomBytes).digest("hex");
   return hash;
 }
 
@@ -59,5 +56,5 @@ module.exports = {
   hashPassword,
   checkPassword,
   sendEmail,
-  generateRandomString
+  generateRandomString,
 };

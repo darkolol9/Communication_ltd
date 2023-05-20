@@ -4,7 +4,6 @@ const db = new sqlite3.Database("./main.db");
 async function queryAsync(query, params) {
   return new Promise((resolve, reject) => {
     db.all(query, params, (err, rows) => {
-      console.log(query);
       resolve(rows);
       console.log(err);
       reject(err);

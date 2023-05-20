@@ -71,7 +71,6 @@ const LoginPanel = () => {
 
           <SubmitButton
             onClick={() => {
-              console.log("SENDING TO SERVER", { email, password });
               checkCredentialsInServer();
             }}
           />
