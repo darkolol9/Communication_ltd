@@ -3,6 +3,7 @@ const app = express();
 const cors = require('cors');
 const RegisterController = require("./controller/RegisterController.js");
 const MessagesController = require("./controller/MessagesController.js");
+const ForgotPasswordController = require("./controller/ForgotPasswordController.js");
 const https = require('https');
 const fs = require('fs');
 
@@ -27,6 +28,8 @@ app.post("/leave_message", MessagesController.addMessage);
 app.get("/get_all_comments", MessagesController.getAll);
 
 app.get('/delete_all_messages', MessagesController.removeAllMessage);
+
+app.post('/forgot_password', ForgotPasswordController.resetPassword);
 
 const server = https.createServer(options, app);
 
