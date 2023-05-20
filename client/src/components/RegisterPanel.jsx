@@ -10,7 +10,7 @@ const SUCCESS = "success";
 
 const IMG_URL = "https://media.giphy.com/media/DHeDr3SAM08koK2GFT/giphy.gif";
 
-const REGISTER_API = "http://localhost:3000/register";
+const REGISTER_API = "https://localhost:3000/register";
 
 const RegisterPanel = () => {
   const navigate = useNavigate();
