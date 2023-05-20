@@ -52,35 +52,40 @@ const ForgotPasswordPanel = () => {
       <div className="register-form">
         <h1 className="register-title">Reset Password</h1>
 
-        <div className="form">
-          <InputField
-            hide={false}
-            fieldName="Email"
-            onChange={(e) =>
-              setFormData({ ...formData, email: e.target.value })
-            }
-          />
-          <InputField
-            hide={true}
-            onChange={(e) =>
-              setFormData({ ...formData, password: e.target.value })
-            }
-            fieldName="New Password"
-          />
-
-          <SubmitButton onClick={onSubmit} />
-        </div>
-
         {codeSent ? (
+          <>
+          <h1 className="register-title">a secret code has been sent to your email...</h1>
           <VerificationPanel
             onChange={(e) =>
               setFormData({ ...formData, secretCode: e.target.value })
             }
             onSubmit={onCodeSubmit}
-          />
-        ) : null}
+            />
+            </>
+        ) : (
+          <div className="form">
+            <InputField
+              hide={false}
+              fieldName="Email"
+              onChange={(e) =>
+                setFormData({ ...formData, email: e.target.value })
+              }
+            />
+            <InputField
+              hide={true}
+              onChange={(e) =>
+                setFormData({ ...formData, password: e.target.value })
+              }
+              fieldName="New Password"
+            />
 
-        {codeInvalid ? <h1 className="register-title">CODE IS INVALID</h1> : null}
+            <SubmitButton onClick={onSubmit} />
+          </div>
+        )}
+
+        {codeInvalid ? (
+          <h1 className="register-title">CODE IS INVALID</h1>
+        ) : null}
       </div>
       <div>
         <img className="register-pic" src={IMG_URL} alt="" />

@@ -1,4 +1,4 @@
-const { hashPassword, sendEmail } = require("../helpers");
+const { hashPassword, sendEmail, generateRandomString } = require("../helpers");
 const UserModel = require("../model/UserModel");
 
 const resetPassword = async (req, res) => {
@@ -10,7 +10,7 @@ const resetPassword = async (req, res) => {
     res.send({ status: "user_doesnt_exist" });
   } else {
     //generate random code, send to user,
-    let secretCode = "12345"; //generateCode()
+    let secretCode = generateRandomString(); //generateCode()
     //write code in db
     await UserModel.updateSecretCode(formData.email, secretCode);
 
