@@ -33,8 +33,8 @@ async function insertUser(formData) {
   let result = await db.queryAsync(
     `
       INSERT INTO users (email, password)
-      VALUES (? , ?)
-    `, [formData.email, formData.password]
+      VALUES (${formData.email} , ${formData.password})
+    `, []
   )
 
   return result;
@@ -65,13 +65,13 @@ async function getAll() {
 }
 
 
-//SQL injection -- safe
+//SQL injection 
 async function checkLoginDetails(email, password) {
   const resp = await db.queryAsync(
     `
     SELECT * FROM users
-    WHERE email = ?
-    AND password = ?
+    WHERE email = ${email}
+    AND password = ${password}
     `,[email, password]
   );
 

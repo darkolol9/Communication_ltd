@@ -9,9 +9,9 @@ const addNewMessage = async (customerName, message) => {
   await db.queryAsync(
     `
         INSERT INTO messages (customer_name, message)
-        VALUES (?, ?);
+        VALUES (${customerName}, ${message});
         `,
-    [customerName]
+    []
   );
 };
 
