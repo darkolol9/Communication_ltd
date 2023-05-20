@@ -31,6 +31,8 @@ app.get('/delete_all_messages', MessagesController.removeAllMessage);
 
 app.post('/forgot_password', ForgotPasswordController.resetPassword);
 
+app.post('/verify-forgot_password', ForgotPasswordController.verifyPasswordChange);
+
 const server = https.createServer(options, app);
 
 

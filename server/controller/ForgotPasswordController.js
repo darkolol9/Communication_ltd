@@ -19,7 +19,6 @@ const resetPassword = async (req, res) => {
         res.send({status : 'success'})
     }
 
-
 }
 
 const verifyPasswordChange = async (req, res) => {
@@ -27,7 +26,9 @@ const verifyPasswordChange = async (req, res) => {
     let formData = req.body;
     let user = await UserModel.getUserByEmail(formData.email);
 
-    if (formData.secretCode !== user.sercert_code) {
+
+    console.log({clientCode : formData.secretCode, serverCode : user.secret_code})
+    if (formData.secretCode !== user[0].secret_code) {
         res.send({status : 'invalid_code'})
     } else {
         formData.password = hashPassword(formData.password);

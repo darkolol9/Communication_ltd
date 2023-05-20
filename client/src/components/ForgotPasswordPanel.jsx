@@ -2,14 +2,30 @@ import { useState } from "react";
 import InputField from "./InputField";
 import SubmitButton from "./SubmitButton";
 import VerificationPanel from "./VerificationPanel";
+import Axios from "axios";
 
 const IMG_URL = "https://media.giphy.com/media/DHeDr3SAM08koK2GFT/giphy.gif";
+const API_PREFIX = "https://localhost:3000";
 
 const ForgotPasswordPanel = () => {
   const [codeSent, setCodeSent] = useState(false);
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+    secretCode: "",
+  });
 
   const onSubmit = () => {
     setCodeSent(true);
+    Axios.post(API_PREFIX + "/forgot_password", formData).then((r) =>
+      console.log(r)
+    );
+  };
+
+  const onCodeSubmit = () => {
+    Axios.post(API_PREFIX + "/verify-forgot_password", formData).then((r) =>
+      console.log(r)
+    );
   };
 
   return (
@@ -18,15 +34,32 @@ const ForgotPasswordPanel = () => {
         <h1 className="register-title">Reset Password</h1>
 
         <div className="form">
-          <InputField hide={false} fieldName="Email" />
-          <InputField hide={true} fieldName="Current Password" />
-          <InputField hide={true} fieldName="New Password" />
-          <InputField hide={true} fieldName="Repeat New Password" />
+          <InputField
+            hide={false}
+            fieldName="Email"
+            onChange={(e) =>
+              setFormData({ ...formData, email: e.target.value })
+            }
+          />
+          <InputField
+            hide={true}
+            onChange={(e) =>
+              setFormData({ ...formData, password: e.target.value })
+            }
+            fieldName="New Password"
+          />
 
           <SubmitButton onClick={onSubmit} />
         </div>
 
-        {codeSent ? <VerificationPanel /> : null}
+        {codeSent ? (
+          <VerificationPanel
+            onChange={(e) =>
+              setFormData({ ...formData, secretCode: e.target.value })
+            }
+            onSubmit={onCodeSubmit}
+          />
+        ) : null}
       </div>
       <div>
         <img className="register-pic" src={IMG_URL} alt="" />
