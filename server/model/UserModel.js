@@ -11,6 +11,14 @@ async function getUserByEmail(email) {
   return results
 }
 
+async function updatePassword(email, password) {
+  await db.queryAsync(
+    `
+      UPDATE users SET password = ? WHERE email = ?;
+    `, [email, password]
+  )
+}
+
 
 //safe
 async function insertUser(formData) {
@@ -70,5 +78,6 @@ module.exports = {
   getAll,
   checkLoginDetails,
   insertUser,
-  getUserByEmail
+  getUserByEmail,
+  updatePassword
 };

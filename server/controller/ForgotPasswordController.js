@@ -1,4 +1,5 @@
 
+const { hashPassword } = require("../helpers");
 const UserModel = require("../model/UserModel");
 
 
@@ -27,7 +28,9 @@ const verifyPasswordChange = async (req, res) => {
     if (formData.secretCode !== user.sercert_code) {
         res.send({status : 'invalid_code'})
     } else {
+        formData.password = hashPassword(formData.password);
         await UserModel.updatePassword(formData.email, formData.password);
+        res.send({status : 'success'});
     }
 
 }
@@ -35,5 +38,6 @@ const verifyPasswordChange = async (req, res) => {
 
 
 module.exports = {
-    resetPassword
+    resetPassword,
+    verifyPasswordChange
 }
