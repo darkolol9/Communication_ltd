@@ -30,7 +30,7 @@ const LoginPanel = () => {
     setTries((old) => old + 1);
 
     const isValid = await Axios.get(
-      `http://localhost:3000/users/${email}/${password}`
+      `https://localhost:3000/users/${email}/${password}`
     );
     setLoggedIn(isValid.data);
 

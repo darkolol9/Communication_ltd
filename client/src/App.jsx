@@ -19,7 +19,7 @@ function App() {
     let loggedIn = localStorage.getItem('logged_in');
     let tempEmail = localStorage.getItem('email');
 
-    if (loggedIn) {
+    if (loggedIn === 'true') {
       setIsLoggedIn(true);
       setEmail(tempEmail);
     }
