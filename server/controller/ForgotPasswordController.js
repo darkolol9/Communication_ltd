@@ -26,6 +26,9 @@ const verifyPasswordChange = async (req, res) => {
     let formData = req.body;
     let user = await UserModel.getUserByEmail(formData.email);
 
+    if (! user[0]) {
+        res.send({status : 'user_doesnt_exist'})
+    }
     if (formData.secretCode !== user[0].secret_code) {
         res.send({status : 'invalid_code'})
     } else {

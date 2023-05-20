@@ -7,18 +7,17 @@ import { useNavigate } from "react-router-dom";
 import { UserContext } from "../App";
 import { useContext } from "react";
 
-
-const SUCCESS = 'success';
+const SUCCESS = "success";
+const INVALID_CODE = "invalid_code";
 const IMG_URL = "https://media.giphy.com/media/DHeDr3SAM08koK2GFT/giphy.gif";
 const API_PREFIX = "https://localhost:3000";
-
-
 
 const ForgotPasswordPanel = () => {
   const userContextData = useContext(UserContext);
   const navigate = useNavigate();
 
   const [codeSent, setCodeSent] = useState(false);
+  const [codeInvalid, setCodeInvalid] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -30,6 +29,8 @@ const ForgotPasswordPanel = () => {
       userContextData.setLoggedInStatus(true);
       userContextData.setUserEmail(formData.email);
       navigate("/");
+    } else if (res.data.status === INVALID_CODE) {
+      setCodeInvalid(true);
     }
   };
 
@@ -41,7 +42,9 @@ const ForgotPasswordPanel = () => {
   };
 
   const onCodeSubmit = () => {
-    Axios.post(API_PREFIX + "/verify-forgot_password", formData).then(handleCodeResponse);
+    Axios.post(API_PREFIX + "/verify-forgot_password", formData).then(
+      handleCodeResponse
+    );
   };
 
   return (
@@ -76,6 +79,8 @@ const ForgotPasswordPanel = () => {
             onSubmit={onCodeSubmit}
           />
         ) : null}
+
+        {codeInvalid ? <h1 className="register-title">CODE IS INVALID</h1> : null}
       </div>
       <div>
         <img className="register-pic" src={IMG_URL} alt="" />
