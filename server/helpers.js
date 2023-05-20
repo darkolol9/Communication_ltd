@@ -3,10 +3,6 @@ const sgMail = require("@sendgrid/mail");
 require('dotenv').config();
 
 
-// sgMail.setApiKey(
-//   "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"
-// );
-
 sgMail.setApiKey(
   process.env.SEND_GRID_API_KEY
 );
