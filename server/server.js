@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const app = express();
 const cors = require('cors');
@@ -36,6 +37,6 @@ app.post('/verify-forgot_password', ForgotPasswordController.verifyPasswordChang
 const server = https.createServer(options, app);
 
 
-server.listen(3000, () => {
-  console.log("server running on port 3000");
+server.listen(process.env.PORT, () => {
+  console.log(`server running on port ${process.env.PORT}`);
 });
