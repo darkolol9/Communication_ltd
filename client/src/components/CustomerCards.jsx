@@ -16,10 +16,10 @@ const CustomerCards = ({ messages }) => {
               className="customer-msg user"
 
               //if we encode the message.message field, we bypass the XSS injection problem
-              // dangerouslySetInnerHTML={{ __html: message.message }}
+              dangerouslySetInnerHTML={{ __html: message.message }}
 
               //safe from XSS attacks
-              dangerouslySetInnerHTML={{ __html: htmlEncode( message.message )}}
+              // dangerouslySetInnerHTML={{ __html: htmlEncode( message.message )}}
             />
           </div>
         );
