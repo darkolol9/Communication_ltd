@@ -1,7 +1,7 @@
 import React from "react";
 import Axios from 'axios';
 
-const API = 'http://localhost:3000/leave_message';
+const API = 'https://localhost:3000/leave_message';
 
 const AddCustomerPanel = ({ setCustomerName, setCustomerMessage, customerMessageForm }) => {
   

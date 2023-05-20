@@ -1,4 +1,26 @@
 const crypto = require("crypto");
+const sgMail = require("@sendgrid/mail");
+sgMail.setApiKey(
+  "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"
+);
+
+
+async function sendEmail(msg) {
+  sgMail
+    .send(msg)
+    .then(() => {
+      console.log("Email sent successfully");
+    })
+    .catch((error) => {
+      console.log("Error sending email:", error);
+    });
+}
+
+function generateRandomString() {
+  const randomBytes = crypto.randomBytes(16);
+  const hash = crypto.createHash('sha1').update(randomBytes).digest('hex');
+  return hash;
+}
 
 function hashPassword(password) {
   // Generate a random salt
@@ -30,4 +52,6 @@ function checkPassword(password, salt, hashed_password) {
 module.exports = {
   hashPassword,
   checkPassword,
+  sendEmail,
+  generateRandomString
 };

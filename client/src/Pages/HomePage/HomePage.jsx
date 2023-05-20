@@ -5,7 +5,7 @@ import "./HomePage.css";
 import { FcCellPhone, FcCallback, FcWebcam, FcAssistant } from "react-icons/fc";
 import Axios from "axios";
 
-const GET_MESSAGES_API = "http://localhost:3000/get_all_comments";
+const GET_MESSAGES_API = "https://localhost:3000/get_all_comments";
 
 const HomePage = () => {
   const [messages, setMessages] = useState([]);
