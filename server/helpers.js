@@ -6,18 +6,18 @@ require("dotenv").config();
 //   "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"
 // );
 
-async function sendEmail(msg) {
-  sgMail.setApiKey(process.env.SEND_GRID_API_KEY);
+// async function sendEmail(msg) {
+//   sgMail.setApiKey(process.env.SEND_GRID_API_KEY);
 
-  sgMail
-    .send(msg)
-    .then(() => {
-      console.log("Email sent successfully");
-    })
-    .catch((error) => {
-      console.log("Error sending email:", error);
-    });
-}
+//   sgMail
+//     .send(msg)
+//     .then(() => {
+//       console.log("Email sent successfully");
+//     })
+//     .catch((error) => {
+//       console.log("Error sending email:", error);
+//     });
+// }
 
 function generateRandomString() {
   const randomBytes = crypto.randomBytes(16);
@@ -55,6 +55,5 @@ function checkPassword(password, salt, hashed_password) {
 module.exports = {
   hashPassword,
   checkPassword,
-  sendEmail,
   generateRandomString,
 };

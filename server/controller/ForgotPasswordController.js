@@ -14,13 +14,15 @@ const resetPassword = async (req, res) => {
     //write code in db
     await UserModel.updateSecretCode(formData.email, secretCode);
 
+    console.info({secretCode})
+
     //send the code to user
-    await sendEmail({
-      to: formData.email,
-      from: "commsltd777@gmail.com",
-      subject: "Verification code to change password",
-      text: `The verification code ${secretCode}`,
-    });
+    // await sendEmail({
+    //   to: formData.email,
+    //   from: "commsltd777@gmail.com",
+    //   subject: "Verification code to change password",
+    //   text: `The verification code ${secretCode}`,
+    // });
 
     res.send({ status: "success" });
   }
